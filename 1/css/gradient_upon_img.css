@@ -1,0 +1,32 @@
+img {
+  /*  To contain the image to the confines of the div  */
+  max-width: 100%;
+}
+
+.hero-image {
+  max-width: 100%; 
+  width: 800px;
+  margin: auto;
+}
+
+.hero-image::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  margin-top: -150px;
+  height: 150px;
+  width: 100%;
+  content: '';
+}
+
+
+
+/*-------------------------------------------------------------*/
+
+.main-header { 
+padding-top: 170px; 
+height: 850px; 
+background: linear-gradient(#004092, #020202, transparent), url("../img/1-1.jpg") no-repeat center; 
+background-size: cover; 
+box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); 
+}

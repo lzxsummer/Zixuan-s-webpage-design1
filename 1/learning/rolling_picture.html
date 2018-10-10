@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script >
+        window.onload = function () {
+            flag = 0;
+        i=2;
+            obj1 = document.getElementById("slider");
+            obj2 = document.getElementsByTagName("li");
+            obj2[0].style.backgroundColor = "#666666";
+            time = setInterval("turn();", 2000);
+ 
+            obj1.onmouseover = function () {
+                clearInterval(time);
+            }
+            obj1.onmouseout = function () {
+                time = setInterval("turn();", 2000);
+            }
+ 
+            for (var num = 0; num < obj2.length; num++) {
+                obj2[num].onmouseover = function () {
+                    turn(this.innerHTML);
+                    clearInterval(time);
+                }
+                obj2[num].onmouseout = function () {
+                    time = setInterval("turn();", 7000);
+                }
+            }
+ 
+        }
+ 
+        function turn(value) {
+            if (value != null) {
+                i=value;
+            }
+    if( i==1 ){
+            document.getElementById("first").src = "img/1-1.jpg";
+    }else if(i==2 ){
+            document.getElementById("first").src = "img/1-2.jpg";
+    }else if( i==3 ){
+            document.getElementById("first").src = "img/1-3.jpg";
+    }
+    for (var j = 0; j < obj2.length; j++) {
+            obj2[j].style.backgroundColor = "#ffffff";
+            }
+            obj2[i-1].style.backgroundColor = "#666666";
+    i++;
+    if(i>3){
+        i=1;
+    }
+}      
+    </script>
+<style type="text/css">
+#div1 {
+    height: 330px;
+    width: 560px;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+}
+#div1 ul {
+    list-style: none;
+    position: absolute;
+    top: 280px;
+    left: 360px;
+}
+#div1 li {
+    opacity: .3;
+    filter: alpha(opacity=30);
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    float: left;
+}
+#slider {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#slider img {
+    float: left;
+    border: none;
+}
+</style>
+</head>
+ 
+<body>
+<div id="div1">
+    <div id="slider"> <a target="_blank" href="#"> <img id="first" src='img/1-1.jpg' width="560px" height="330px" /> </a>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+</body>
